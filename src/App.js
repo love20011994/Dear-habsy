@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-//  import Rule from "./components/Rules";
-import Rule1 from "./components/Rules1"
+ 
+import Rules2 from "./components/Rules"
 import Contractid  from "./components/Contractid"
  
 // import Contract from './components/contract';
@@ -26,8 +26,8 @@ const secondComponent = () => {
 }
 const thirdComponent = () => {
   return (<div className="div4">
-    <Rule1/>
-    {/* <Rule/> */}
+    <Rules2/>
+     
     </div>
   );
 }

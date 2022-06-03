@@ -1,6 +1,7 @@
 import { BsPlusLg } from "react-icons/bs"
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import {RiDeleteBinLine} from "react-icons/ri"
 import {BiPlus,BiMinus} from "react-icons/bi"
 import { useSelector } from "react-redux";
  
@@ -36,12 +37,12 @@ function Rules() {
   const [error, setError] = useState(false);
   const [view, setView] = useState(false);
   const [form, setForm] = useState(new FormData());
-  const luv =()=>{
+  const add =()=>{
       // setstate(true)
       setcount(count+1)
-      console.log("kush")
+      console.log("ok")
   }
- const kush=()=>{
+ const dele=()=>{
    setcount(count-1)
  }
   
@@ -189,7 +190,7 @@ const demoApi = async () => {
 
 
   return (
-<div class="container">
+<div class="container" style={{marginTop: "65px",display:"flex"}} >
   <div class="row">
     <div class="col" id="panel">
     <div class="panel panel-primary" id="result_panel">
@@ -214,8 +215,8 @@ const demoApi = async () => {
 
     </div>
     <div class="col-sm" id="pro">
-    <div class="container" Style="width:50rem; ">
-                <table>
+    <div class="container">
+                <table style={{marginLeft:'-47px'}}>
                   <tbody>
                     <br></br>
 
@@ -319,36 +320,58 @@ const demoApi = async () => {
                 </table>
               </div>
               
-            <div Style="width:90rem margin:0 auto;  margin-bottom:10px; margin-top:5%">
+            <div Style=" margin:0 auto;  margin-bottom:10px; margin-top:8%">
               <table
                 class="table table-borderless"
-                borer="0"
-                Style="margin-top:5%"
+                style={{marginTop :'-4%',marginLeft:"23px"}}
+              
+                
               >
                 {show && <tr>{/* <h6>{this.state.conditions}</h6> */}</tr>}
                 
                 <tbody>
                   {showing && (
-                    <div>
-                        <th>
+                    <div class="row">
+                    <div class="col-sm-4" style={{marginLeft:"134px"}}> 
+                    <th>
+                            <lable>Condition</lable>
+                          </th></div>
+                    <div class="col-sm-4"> 
+                    <th >
+                                <label>Penalty Amount</label>
+    
+                              </th></div>
+                    
+                  
+                   
+                        {/* <th>
                             <lable>Condition</lable>
                           </th>
+                          <th style={{marginLeft :'20px'}}>
+                                <label>Penalty Amount</label>
+    
+                              </th> */}
                       {Condition &&
                         Condition.slice(0,count).map((item, index) => {
                           return (
-                            <div key={index}>{state?null:<div Style="display:flex; margin-left:4rem">
-                            <table Style="width:100%">
+                            <div key={index}>{state?null:<div Style="display:flex">
+                            <table Style="width:141% ; margin-left:27px">
                           
-                              <td>
+                              <td Style="width:70%">
                                 <input
-                                  Style="width:100%"
+                                  Style="width:145%"
                                   type="text"
                                   value={item.condition}
                                 />
                               </td>
-                              <td>
+                              <th>
+                              
+                              </th>
+                              <td  >
                                 <input
-                                  type="text"
+                                
+                                style={{marginLeft:"86px",width:"269px"}}
+                                 type="text"
                                   class="col-sm-4"
                                   name={item.id}
                                   // defaultValue={input}
@@ -356,11 +379,9 @@ const demoApi = async () => {
                                     fOnChange(e.target, index);
                                   }}
                                 />
-
-
                               </td>
-                             <td> <div onClick={luv} ><BiPlus/></div>
-                              <div onClick={kush} ><BiMinus/></div></td>
+                            <td> <div style={{marginLeft: "-11rem"}} onClick={add} ><BiPlus/></div>
+                              <div onClick={dele} ><RiDeleteBinLine/></div></td>
 
 
                             </table>

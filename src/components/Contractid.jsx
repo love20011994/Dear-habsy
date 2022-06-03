@@ -1,11 +1,13 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState , useEffect,useRef} from 'react';
 import axios from "axios";
+
 // import Rules from './Rules';
 import Rules from './Rules';
 import { useDispatch } from 'react-redux';
  
 function Contractid(props){
   const[posts,setPost] = useState([]);
+  
   // const [isLoading, setIsLoading] = useState(true);
 const dispatch=useDispatch()
  
@@ -32,56 +34,63 @@ const dispatch=useDispatch()
               <label
                 for="contractid"
                 class="col-sm-3 col-form-label"
-                style={{ width: "10px" }}
+               style={{color:"black"}}
               >
-                ContractId
+                Contract Id
               </label>
               <div class="col-sm-9">
                 <input
-                  type="text"
-                  style={{ width: "260px" }}
-                  class="form-control"
+                  type="number"
+                  style={{ width: "23rem",background:'white',border:"0.5px solid black"  }}
+                  class="form-control shadow-none shadow-sm "
                   placeholder="Enter a value"
+                  // ref={input}
                   name="contractid"
                 ></input>
+                 {/* <span>Enter a Contract id</span> */}
               </div>
             </div>
             <div class="form-group row">
-              <label for="contractdate" class="col-sm-3 col-form-label">
-                StartDate
+              <label for="contractdate" class="col-sm-3 col-form-label"
+               style={{color:"black"}}>
+                Start Date
               </label>
 
               <div class="col-sm-9">
                 <input
                   type="date"
-                  class="form-control"
-                  style={{ width: "260px" }}
+                  class="form-control shadow-none shadow-sm "
+                  style={{ width: "23rem",border:"0.5px solid black" }}
                   placeholder="Enter a value"
                   name="contractdate"
+                  
                 ></input>
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="contractdate" class="col-sm-3 col-form-label">
-                EndDate
+              <label for="contractdate" class="col-sm-3 col-form-label"
+               style={{color:"black"}}>
+                End Date
               </label>
               <div class="col-sm-9">
                 <input
                   type="date"
-                  class="form-control"
-                  style={{ width: "260px" }}
+
+                  class="form-control shadow-none shadow-sm "
+                  style={{ width: "23rem" ,border:"0.5px solid black"}}
                   placeholder="Enter a value"
                   name="contractdate"
                 ></input>
               </div>
+              
             </div>
 
             <div class="form-group row">
               <label
                 for="inputoption"
                 class="col-sm-3 col-form-label"
-                style={{ width: "10px" }}
+                
               >
 
                 Category &nbsp;&nbsp;&nbsp;
@@ -89,19 +98,19 @@ const dispatch=useDispatch()
 
               <div class="col-sm-9">
                 <select
-
+                type="option"
                   name="categoryid"
-                  class="form-control"
-                  style={{ width: "260px" }}
+                  class="form-control shadow-none shadow-sm "
+                  style={{ width: "23rem" ,border:"0.5px solid black"}}
                   id="inputoption"
                   aria-label="Default select example"
                   onChange={(e) =>dispatch({type:"contractid" ,payload:e.target.value})}
                 >
-                  <option selected style={{backgroundColor:"#13255b",color:"white", width: "160px" , fontSize: "11px"}}>Open this select categorry</option>
+                  <option type="option" selected style={{backgroundColor:"#13255b",color:"white", width: "160px" , fontSize: "15px"}}>Open this select categorry</option>
                  
                  {posts.map((post,i)=>(
-          <option  
-     style={{ width: "160px", fontSize: "10px", fontWeight: 'bold' }} 
+          <option  type='option'
+     style={{ width: "160px",height:'30rem', fontSize: "13px", fontWeight: 'bold' }} 
       value={i+1}>{post.category}
  
 
